@@ -1,0 +1,20 @@
+<form>
+  <input type="text" [(ngModel)]="entrepriseRecherchee">
+  <button (click)="rechercherEmploi()">Rechercher</button>
+
+
+
+<div class="card" style="width: 18rem;" *ngFor="let e of listeEmploiFilter  ">
+  <div *ngIf="e.entreprise==entrepriseRecherchee ">
+    
+    <div class="card-body">
+      <h5 class="card-title">{{e.titre}}</h5>
+      <p class="card-text">entreprise : {{e.entreprise}}</p>
+      <button class="btn btn-primary" [disabled]="e.etat === false">Postuler</button>
+    </div>
+  </div>
+</div>
+<p></p>
+  <button class="btn btn-primary" (click)="Bilan()" >Bilan</button>
+</form>
+

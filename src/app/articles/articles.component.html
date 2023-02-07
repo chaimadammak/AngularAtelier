@@ -1,0 +1,24 @@
+
+<p> Les articles d'aujourd'hui </p>
+<div class="container overflow-hidden">
+    <input type="number" name="price" [(ngModel)]="nbarticles" />
+</div>
+
+<div class="card" style="width: 18rem;" *ngFor="let e of  listeArticles">
+   
+    <div *ngIf="e.categoreie!='travail' ">
+        <div *ngIf=" nbarticles <=3 ">
+    
+      <div class="card-body">
+        <div class="p-3 mb-2 bg-info text-white">{{e.titre}}
+        <p class="text-primary"></p>
+        <p class="card-text">entreprise : {{e.contenu}}</p>
+        <p class="card-text">entreprise : {{e.auteur}}</p>
+        <p class="card-text">entreprise : {{e.date}}</p>
+        <p class="card-text">entreprise : {{e. categoreie }}</p>
+    </div>
+      </div>
+    </div>
+    </div>
+</div>
+ 
