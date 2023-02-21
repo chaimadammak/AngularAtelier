@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OffresEmploiComponentComponent } from './offres-emploi-component/offres-emploi-component.component';
 import { ArticlesComponent } from "./articles/articles.component";
+import { TemplateDrivenFromComponentComponent } from './template-driven-from-component/template-driven-from-component.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         OffresEmploiComponentComponent,
-        ArticlesComponent
+        ArticlesComponent,
+        TemplateDrivenFromComponentComponent
     ],
     providers: [],
     bootstrap: [AppComponent],

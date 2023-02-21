@@ -1,0 +1,78 @@
+
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" novalidate>
+    
+        <h2>Formulaire d'inscription</h2>
+      
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control is-invalid" name="nom" [(ngModel)]="Nom" required #NomInput="ngModel" 
+            [ngClass]="{'is-invalid': NomInput.invalid && (NomInput.dirty || NomInput.touched), 'is-valid': NomInput.valid}">
+            <div id="validationServer03Feedback" class="invalid-feedback"  [ngClass]="{'text-danger': NomInput.invalid, 'text-success': NomInput.valid}" *ngIf="NomInput.invalid && (NomInput.dirty || NomInput.touched)">
+              Le champ Nom est requis.
+            </div>
+          </div>
+          
+        <div class="mb-3">
+          <label for="prenom" calss="form-label">Prénom</label>
+          <input type="text" class="form-control is-invalid" name="prenom" [(ngModel)]="Prenom" required #PrenomInput="ngModel"
+            [ngClass]="{'is-invalid': PrenomInput.invalid && (PrenomInput.dirty || PrenomInput.touched), 'is-valid': PrenomInput.valid}">
+          <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="PrenomInput.invalid && (PrenomInput.dirty || PrenomInput.touched)">
+            Le champ Prénom est requis.
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control is-invalid" name="email" [(ngModel)]="Email" required email #EmailInput="ngModel"
+            [ngClass]="{'is-invalid': EmailInput.invalid && (EmailInput.dirty || EmailInput.touched), 'is-valid': EmailInput.valid}">
+          <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="EmailInput.errors?.['required'] && (EmailInput.dirty || EmailInput.touched)">
+            Le champ Email est requis.
+          </div>
+          <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="EmailInput.errors?.['email']">
+            Veuillez saisir une adresse email valide.
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <h4>Informations de paiement</h4>
+      
+          <div class="form-group">
+            <label for="type_carte">Type de carte</label>
+            <select class="form-control" name="type_carte" [(ngModel)]="TypeCarte" required>
+              <option value=""></option>
+              <option value="Visa">Visa</option>
+              <option value="Mastercard">Mastercard</option>
+              <option value="American Express">American Express</option>
+            </select>
+          </div>
+      
+          <div class="form-group">
+            <label for="numero_carte">Numéro de carte</label>
+            <input type="text" class="form-control" name="numero_carte" [(ngModel)]="NumCarte" required creditCard #NumeroCarteInput="ngModel"
+              [ngClass]="{'is-invalid': NumeroCarteInput.invalid && (NumeroCarteInput.dirty || NumeroCarteInput.touched), 'is-valid': NumeroCarteInput.valid}">
+            <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="NumeroCarteInput.invalid && (NumeroCarteInput.dirty || NumeroCarteInput.touched)">
+              Veuillez saisir un numéro de carte de crédit valide.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="expiration_carte">Date d'expiration</label>
+            <input type="text" class="form-control" name="expiration_carte" [(ngModel)]="DateExp" required expirationDate #ExpirationCarteInput="ngModel"
+              [ngClass]="{'is-invalid': ExpirationCarteInput.invalid && (ExpirationCarteInput.dirty || ExpirationCarteInput.touched), 'is-valid': ExpirationCarteInput.valid}">
+            <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="ExpirationCarteInput.invalid && (ExpirationCarteInput.dirty || ExpirationCarteInput.touched)">
+              Veuillez saisir une date d'expiration de carte de crédit valide.
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="code_carte">Code de sécurité</label>
+            <input type="text" class="form-control" name="code_carte" [(ngModel)]="Code" required #CodeCarteInput="ngModel"
+              [ngClass]="{'is-invalid': CodeCarteInput.invalid && (CodeCarteInput.dirty || CodeCarteInput.touched), 'is-valid': CodeCarteInput.valid}">
+            <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="CodeCarteInput.invalid && (CodeCarteInput.dirty || CodeCarteInput.touched)">
+              Le champ Code de sécurité est requis.
+            </div>
+          </div>
+            </div>
+          <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">S'inscrire</button>
+          
+          </form>
+      
